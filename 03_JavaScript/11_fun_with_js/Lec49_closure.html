@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure or Chai</title>
+</head>
+<body style ="background-color: #313131;">
+  <button id="orange">Orange</button>
+  <button id="green">Green</button>
+</body>
+<script>
+    function init() {
+         let name = "Mozilla"; // name is a local variable created by init
+         function displayName() {
+                // displayName() is the inner function, that forms the closure
+               console.log(name); // use variable declared in the parent function
+                 }
+       displayName();
+      }
+init();
+
+/*init() creates a local variable called name and a function called displayName().
+ The displayName() function is an inner function that is defined inside init() and 
+ is available only within the body of the init() function. Note that the displayName() 
+ function has no local variables of its own. 
+ However, since inner functions have access to the variables of outer functions, 
+ displayName() can access the variable name declared in the parent function, init().
+ This is LEXICAL SCOPE. */
+function makeFunc() {
+    const name = "Mozilla";
+    function displayName() {
+        console.log(name);
+    }
+    return displayName; // return reference of inner function
+}
+
+const myFunc = makeFunc();  // Here after execution makeFunc() will be removed from global execution context.
+// But here memory comes into Play 
+/*Closure - Here, makeFunc() will not return only displayname scope infact it will whole return lexical scope. 
+(Whole memory is shared not only displayname executional context)
+i.e variable name will be accessible.
+This returning of whole lexical scope is called CLOSURE.*/
+
+myFunc(); // Mozilla 
+    </script>
+    <script>
+      //________________________________Practical Implementation Is Asked In Interview____________________________________
+      // We have two button orange and green , we want when click on button bg color change accordingly .
+        /*function clickHandler (color){
+            document.body.style.backgroundColor=`${color}`
+        }
+        document.getElementById('orange').onclick=clickHandler('green') */
+         // Now this will crete a issue , it will always turn bg as green 
+        // Because in return it was expected to have a function  but you just executed the function itself does not return it.
+        // so for that we have to change the definition , in which concept of lexical scope and closure will be used.
+       
+        function clickHandler (color){
+
+            return function (){
+                document.body.style.backgroundColor=`${color}`;
+            }
+        }
+        // Now here typically typically, concept of Lexiccal scoping is used as access of color is available in inside function
+        // Similarly , on returning function whole scope is returning 
+        // This is the practical based example asked in interviews.
+        document.getElementById('orange').onclick=clickHandler('orange')
+        document.getElementById('green').onclick=clickHandler('green')
+    </script>
+</html>

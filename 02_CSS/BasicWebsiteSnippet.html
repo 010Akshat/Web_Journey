@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1f2937;
+        }
+        nav{
+            position: sticky;
+            top: 10px;
+            background-color: #1f2937;
+            color : #ffffff;
+            border:1px solid black;
+            margin:10px 10px 30px 10px;
+            padding: 20px 80px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav div ul{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap:20px;
+            list-style-type: none;
+        }
+        nav div button{
+            padding: 5px 10px;
+            border-radius: 5px;
+            border:none;
+            cursor: pointer;
+        }
+        nav div button:hover{
+            background-color:#1144a3;
+            color:#ffffff;
+        }
+        .hero{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:30px; 
+            background-color: #1f2937;
+            color: white;  
+            padding: 40px 80px;
+        }
+        .hero div{
+            width: 50%;
+        }
+        .hero div h1{
+            font-size:3em;
+        }
+        .hero div p{
+            font-size: 1.2em;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+        .hero div button{
+            padding:8px 16px;
+            border:none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 200px;
+        }
+        .hero div img{
+            border-radius: 20px;
+            align-self: center;
+            box-shadow: 0px 0px 10px white;
+        }
+        .hero div img:hover{
+            transform: rotate(360deg);
+            transition: all 0.5s ease-in-out;
+        }
+        .logo-text{
+            margin: 50px;
+            text-align: center;  
+            font-size: 46px;
+        }
+        .logo{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .logo div{
+            border-radius: 20px;
+        }
+        .logo div img{
+            width: 100%;
+            border-radius:20px;
+            padding: 10px;
+            object-fit: cover;
+        }
+        .three-card{
+            margin: 20px 10%;
+            border: 2px solid black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 0 10px black;
+        }
+        .card{
+            padding: 10px;
+            width: 20%;
+            height: 90%;
+            border: 1px solid black;
+            box-shadow: 0 0 10px black;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .card img{
+            width:100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .card h3{
+            margin: 10px 10px;
+        }
+        .card p{
+            margin: 20px 0;
+        }
+        /* media query*/
+        @media screen and (max-width:976px){
+            body{
+                background-color: red;
+            }
+            .three-card{
+                flex-direction: column;
+            }
+            .three-card div{
+                width:80%;
+            }
+        }
+    </style>
+<body>
+    <nav>
+        <div>My Logo</div>
+        <div>
+            <ul>
+                <li>Home </li>
+                <li>About</li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+        <div>
+            <button>Login</button>
+            <button>Signup</button>
+        </div>
+    </nav>
+    <section class="hero">
+        <div>
+            <h1>Hero Title</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore natus quibusdam, id odit eos non fugit esse rerum labore illo quidem possimus recusandae ipsa obcaecati quos at atque. Sed, reiciendis.
+            </p>
+            <button>SignUp</button>
+        </div>
+        <div>
+            <img src="https://images.pexels.com/photos/29847097/pexels-photo-29847097/free-photo-of-scenic-icelandic-landscape-with-grazing-sheep.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Hitesh Sir">
+        </div>
+    </section>
+    <h2 class="logo-text">Our Clients</h2>
+    <section class="logo">
+        <div><img src="https://images.pexels.com/photos/1069798/pexels-photo-1069798.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></div>
+        <div><img src="https://images.pexels.com/photos/258083/pexels-photo-258083.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></div>
+        <div><img src="https://images.pexels.com/photos/15863044/pexels-photo-15863044/free-photo-of-openai-text-on-tv-screen.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></div>
+        <div><img src="https://images.pexels.com/photos/243925/pexels-photo-243925.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></div>
+        <div><img src="https://images.pexels.com/photos/1203777/pexels-photo-1203777.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></div>
+    </section>
+
+    <section class="three-card">
+        <div class="card">
+            <img src="https://images.pexels.com/photos/8371721/pexels-photo-8371721.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3>Card Title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dolore aliquid consequatur earum nesciunt exercitationem delectus aut nisi, labore impedit?</p>
+        </div>
+        <div class="card">
+            <img src="https://images.pexels.com/photos/8382048/pexels-photo-8382048.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3>Card Title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dolore aliquid consequatur earum nesciunt exercitationem delectus aut nisi, labore impedit?</p>
+        </div>
+        <div class="card">
+            <img src="https://images.pexels.com/photos/6601553/pexels-photo-6601553.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3>Card Title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dolore aliquid consequatur earum nesciunt exercitationem delectus aut nisi, labore impedit?</p>
+        </div>
+
+    </section>
+</body>
+</html>

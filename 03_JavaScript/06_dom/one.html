@@ -1,0 +1,195 @@
+<!-- DOM : Document Object Model -->
+
+
+<!-- //++++++++++++++++++++++++++++++++++++++++++ Lecture 31  +++++++++++++++++++++++++++++++++++++++++
+// Here we learn what is DOM and Dom Manipulation and DOM diagram  -->
+
+<!-- The Document Object Model (DOM) connects web pages to scripts or programming languages by representing the structure 
+    of a document—such as the HTML representing a web page—in memory. 
+    Usually it refers to JavaScript, even though modeling HTML, SVG, or XML documents as objects are not part of the core
+     JavaScript language. -->
+
+     <!-- The Document Object Model (DOM) connects web pages to scripts or programming languages
+         by representing the structure of a document—such as the HTML representing a web page—in memory. 
+         Usually it refers to JavaScript, even though modeling HTML, SVG, or XML documents as objects are not part
+          of the core JavaScript language. -->
+<!DOCTYPE html> <!-- This is to tell only type of document i.e HTML but document starts from next line-->
+<html lang="en"> <!--Document starts here-->
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning </title>
+        <style>
+            .bg-black{
+                background-color: #212121;
+                color:#fff
+            }
+            </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id="title" class="heading">DOM learning aur chai aur code <span style="display:none;"> test text </span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing </p>
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+        </div>
+</body>
+</html>
+<!-- This page is made to learn DOM manipulation , refer to copy for understanding -->
+<!-- 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+//+++++++++++++++++++++++++++++++++++++ Lecture 32 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//we will run this page on live server and try different ways to access elements and make changes in them in DOM manipulation -->
+
+<!--
+document.getElementById('title')
+<h1 id=​"title" class=​"heading">​DOM learning aur chai aur code​</h1>​
+document.getElementById('title').id
+'title'
+document.getElementById('title').class
+undefined
+document.getElementById('title').className
+'heading'
+document.getElementById('title').getAttribute('id')
+'title'
+document.getElementById('title').getAttribute('class')
+'heading'
+document.getElementById('title').setAttribute('class','test')
+undefined   (it will update class as test )
+document.getElementById('title').setAttribute('class','test heading')
+undefined (it will update class as test heading )
+-->
+
+
+<!-- const title = document.getElementById('title') 
+undefined
+title.style.backgroundColor='green'
+'green'
+title.style.padding='15px'
+'15px'
+title.style.borderRadius="15px"
+'15px' 
+All these changes will be highlighted in the page 
+So far getElementById is clear
+-->
+
+<!-- 
+title
+    <h1 id=​"title" class=​"test heading" style=​"background-color:​ green;​ padding:​ 5px;​ border-radius:​ 5px;​">​DOM learning aur chai aur code​</h1>​
+title.textContent
+'DOM learning aur chai aur code'
+title.innerHTML
+'DOM learning aur chai aur code'
+title.innerText
+'DOM learning aur chai aur code'
+
+Firstly to see diff between textContent and innerText and innerHTML
+     We will add <span style="display:none;"> test text </span> in <h1> after text 
+
+Now
+title.innerText
+'DOM learning aur chai aur code'
+title.textContent
+'DOM learning aur chai aur code  test text '
+title.innerHTML
+'DOM learning aur chai aur code <span style="display:none;"> test text </span>'
+-->
+
+
+<!--
+document.querySelector('h2')
+<h2>​Lorem ipsum dolor sit.​</h2>​  (it will return first h2)
+document.querySelector('#title')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+document.querySelector('.heading')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+document.querySelector('input[type="password"]')
+null
+-->
+
+<!-- 
+document.querySelector('ul')
+<ul>​…​</ul>​
+const myUl=document.querySelector('ul')
+undefined
+myUl.querySelector('li')
+<li>​…​</li>​
+const turnGreen = myUl.querySelector('li')
+undefined
+turnGreen.style.ba
+undefined
+turnGreen.style.backgroundColor="green"
+'green'
+turnGreen.style.padding="10px"
+'10px'
+turnGreen.innerText="five"
+'five'
+ -->
+
+
+ <!-- 
+    //      ---------------------- all about NodeList--------------------------
+document.querySelectorAll('li')
+NodeList(3) [li, li, li]0: li1: liaccessKey: ""ariaAtomic: nullariaAutoComplete: nullariaBrailleLabel: nullariaBrailleRoleDescription: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaInvalid: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "https://ideal-space-invention-g4q9gjxq9xqgfwrx5-5500.app.github.dev/06_dom/one.html"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: '']className: ""clientHeight: 18clientLeft: 0clientTop: 0clientWidth: 1480contentEditable: "inherit"dataset: DOMStringMap {}dir: ""draggable: falseeditContext: nullelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""inert: falseinnerHTML: "two"innerText: "two"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "li"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: linextSibling: textnodeName: "LI"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 18offsetLeft: 48offsetParent: body.bg-blackoffsetTop: 295offsetWidth: 1480onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforeinput: nullonbeforematch: nullonbeforepaste: nullonbeforetoggle: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontentvisibilityautostatechange: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonscrollend: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<li>two</li>"outerText: "two"ownerDocument: documentparentElement: ulparentNode: ulpart: DOMTokenList [value: '']popover: nullprefix: nullpreviousElementSibling: lipreviousSibling: textrole: nullscrollHeight: 18scrollLeft: 0scrollTop: 0scrollWidth: 1480shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "LI"textContent: "two"title: ""translate: truetype: ""value: 0virtualKeyboardPolicy: ""[[Prototype]]: HTMLLIElement(...)2: liaccessKey: ""ariaAtomic: nullariaAutoComplete: nullariaBrailleLabel: nullariaBrailleRoleDescription: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaInvalid: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "https://ideal-space-invention-g4q9gjxq9xqgfwrx5-5500.app.github.dev/06_dom/one.html"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: '']className: ""clientHeight: 18clientLeft: 0clientTop: 0clientWidth: 1480contentEditable: "inherit"dataset: DOMStringMap {}dir: ""draggable: falseeditContext: nullelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""inert: falseinnerHTML: "three"innerText: "three"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "li"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: nullnextSibling: textnodeName: "LI"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 18offsetLeft: 48offsetParent: body.bg-blackoffsetTop: 313offsetWidth: 1480onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforeinput: nullonbeforematch: nullonbeforepaste: nullonbeforetoggle: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontentvisibilityautostatechange: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonscrollend: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<li>three</li>"outerText: "three"ownerDocument: documentparentElement: ulparentNode: ulpart: DOMTokenList [value: '']popover: nullprefix: nullpreviousElementSibling: lipreviousSibling: textrole: nullscrollHeight: 18scrollLeft: 0scrollTop: 0scrollWidth: 1480shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "LI"textContent: "three"title: ""translate: truetype: ""value: 0virtualKeyboardPolicy: ""[[Prototype]]: HTMLLIElement(...)length: 3[[Prototype]]: NodeListentries: ƒ entries()forEach: ƒ forEach()item: ƒ item()keys: ƒ keys()length: (...)values: ƒ values()constructor: ƒ NodeList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "NodeList"get length: ƒ length()[[Prototype]]: Object
+const tempLiList= document.querySelectorAll('li')
+undefined
+tempLiList
+NodeList(3) [li, li, li] 
+
+//------------------------------------------------------IMPORTANT-------------------------
+In DOM,
+HTML Collection aur Node List are not pure arrays, thats why you cant use map in them , 
+they are not present in prototype of HTML Collection aur node list.
+this is mistake done by most of students , they consider HTML Collection and node list as array whereas in actual they are not
+// ModeList are not array but are like arrays and kaafi cheezen match bhi hoti hai
+
+
+tempLiList[0].style.color="green"
+'green'
+
+const myH1 = document.querySelectorAll('h1')
+undefined
+myH1[0].style.color = 'green'
+'green'
+
+tempLiList.forEach(function (l) {
+    l.style.background = 'green'
+})
+undefined
+ 
+Node List can be converted into array after that you can perform any prototype of array on it
+-->
+
+<!-- 
+document.getElementsByClassName('list-item')
+    HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+Now, HTML collection doesnt have forEach Loop
+-------------------------now we will convert Html collection into an array ----------------------------------
+Array.from(tempClassList)
+   (4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+
+   const myConvertedArray = Array.from(tempClassList)
+undefined
+myConvertedArray
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+myConvertedArray.forEach(function (li) {
+    li.style.color="orange"
+})
+
+
+// here we are getting HTML Collection which is different from Node List
+ -->
+
+
+
+<!-- Now we will have some DOM Manipulation in javascript wikipedia page -->

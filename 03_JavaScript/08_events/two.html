@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Chai aur Code</h1>
+<button id="stop">Stop</button>
+</body>
+<script>
+    setTimeout(function(){
+        console.log("hitesh")
+    },2000) // open webpage in live server and write window in console  you will get setInterval, setTimeout ,clearInterval , clear Timeout 
+    // setTimeout and setInterval are functions but we get them through browser  , they are not part of core Js
+    // clearInterval and clearTimeout are also . They are also very imp for interview POV
+    // when we hover over setTimeout , first we get is handler(a function without name, we will give here function which will execute after timeout completes), and then we give time in milliseconds to wait 
+   // setTimeout will wait for sometime and then execute the task 
+   // setInterval will wait for definite intervals and then execute tasks again and again
+   const sayAkshat = function(){
+    console.log("Akshat")
+   }
+   setTimeout(sayAkshat,2000); // write sayAkshat i.e give references not execution sayAkshat()
+   const update = function(){
+    document.querySelector('h1').innerHTML='Best Js series';
+   }
+   const changeMe=setTimeout(update,2000);
+   //how to stop that timeout 
+   document.querySelector('#stop').addEventListener('click',function(){
+     clearTimeout(changeMe);
+     console.log("STOPPED");
+   })
+
+</script>
+</html>

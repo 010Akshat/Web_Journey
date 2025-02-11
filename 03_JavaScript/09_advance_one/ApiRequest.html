@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121 ;">
+    <script>
+        //Before studying fetch , in earlier days request were made on XMLhttpRequest. // nowadays not used , it is for knowledge
+        // XMLhttpRequest is heavily used in AJAX - Asynchronous JavaScript and XML 
+        // Here async await are not used , here was state for everything.
+        
+        //---------------------------------------------------------------------------------------------------------
+        // XMLHttpRequest: readyState property
+        // 0	UNSENT	Client has been created. open() not called yet.
+        // 1	OPENED	open() has been called.
+        // 2	HEADERS_RECEIVED	send() has been called, and headers and status are available.   
+        // 3	LOADING	Downloading; responseText holds partial data.
+        // 4	DONE	The operation is complete.
+        //-------------------------------------------------------------------------------------------------------
+        const requestURL ='https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata';
+        const xhr = new XMLHttpRequest() // XMLHttpRequest can be considered as class or method, we just want to make its object xhr (can also be said reference)
+        xhr.open('GET',requestURL); // As you have Send request , ready state chnages constantly... For tracking that we will use xhr.onreadystatechange
+        // xhr.onreadystatechange takes a function ( what it has to perform when state changes)
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);  // run this html page on live server ->go to website->inspect ->console , there you will see that it is changing
+            if(xhr.readyState===4){
+                const data = JSON.parse(this.responseText); // note- responseText was never declared but it can be used. responseText as name suggests is a response in string from API. Converting it into JSON
+                console.log(typeof this.responseText); //string
+                console.log(typeof data); //object
+                console.log(data.meals[0].idMeal); //52771 (data from API) 
+            }
+        }
+        xhr.send() // actually the request is only send after 'send()' function is called , without this you will not get any output. Infact call() is also called after send() is called 
+        
+        
+
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // console.log
+        // Kuch Khaas to samjh nhi aaya but according to hitesh sir 
+        // console and document both are not part of core JS
+        // console is debugger.It a developer tool of windows used as debugger.
+        // console is not part of core Js but it is injected  by environment in which Js engine is working or embedded
+        /* According to chatGPT
+        In JavaScript, the console object is not inherently part of the JavaScript language itself, 
+        but rather it's a built-in object provided by the environment in which JavaScript is executed. 
+        */
+
+
+        // v8 engine is whole made in C++ . It is used to run Js
+        // Js is actually wrapper of C++, i.e JS is made from C++
+        
+
+
+    </script>
+</body>
+</html>

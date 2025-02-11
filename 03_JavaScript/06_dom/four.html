@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Code | DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff ">
+    <ul class = "language">
+        <li> JavaScript </li>
+    </ul>
+</body>
+<script>
+    // Baar Baar keh rah hu videos dekklena dobara 31 - 35 
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+    // To add in this whole tree has to be traverse to find li, however here is only 1 li but in large scale projects we will use
+    // optimize way to add element
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))      // Always prefer append child over innerHTML as it is optimized and good practice
+        document.querySelector('.language').appendChild(li)
+    }    
+    addOptiLanguage('golang')
+
+    // Edit of values
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML="Mojo"
+    const newli=document.createElement('li')
+    console.log(newli)
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    //edit
+    const firstLang=document.querySelector('li')
+    firstLang.outerHTML='<li>TypeScript</li>'
+
+    // remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>

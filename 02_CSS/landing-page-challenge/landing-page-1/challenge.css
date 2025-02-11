@@ -1,0 +1,125 @@
+/* Challenge CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3b3a3a;
+}
+
+.logo {
+  padding: 5px;
+  margin-left: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+  color: white;
+  font-weight: bold;
+}
+
+.logo img {
+  border-radius: 100%;
+}
+
+.nav-links{
+  margin-right: 40px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: small;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  /* Add hover styles for nav links */
+}
+
+/* Hero section styles */
+.hero {
+  background: linear-gradient(#000000bb, #000000bb), url(./assets/chaigym.png);
+  flex-grow: 1;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero-content {
+  width: 70%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+  /* border: 1px solid red; */
+}
+
+.hero-content h1 {
+  font-size:240%;
+  font-weight:bolder;
+  color: white;
+}
+
+.hero-content p {
+  color: white;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 3px;
+  color: black;
+  background-color: #ff7925;
+}
+
+.cta-button:hover {
+  /* Add hover styles for CTA button */
+}
+
+/* Features section styles */
+.features {
+  border-radius: 20px;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  /* border: 1px solid blue; */
+  background-color: #000000bb;
+}
+
+.feature {
+  text-align: center;
+  border: 2px solid #ff7925;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.feature h3 {
+  color: #ff7925;
+}
+
+.feature p {
+  color: white;
+}

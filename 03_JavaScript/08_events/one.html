@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+// Events aur dom ki videodekhlena jab dobara padhe .. tabhi samjh aayega time kam lagega kyuki sab likh liya hai
+// In Js mostly things run in sequential manner but their are some exceptions
+// js in sequentially running language but sometimes we ignore it , like in asynchronous js
+// such exceptions are your browser events they did not run sequentially , they invoke on an event like pressing a button , dragging etc
+/* consider image with id='owl' , you can add onclick=alert("owl") directly , 
+ this approach is not at all good, on larger scale such approach will create problems // This is for pure js not for react
+ better approach is given below  */
+// document.getElementById('owl').onclick=function(){
+    // alert("owl clicked")
+// } now this approach is also not good here onclick gives us less features 
+// we should use event listeners they give onclick functionality along with ability of propogation
+
+// so best way
+document.getElementById('owl').addEventListener('click',function(e){
+    // Here we will write event inside quotes '',their are many events like click , double ckicl etc watch on MDN
+    /* addEventListener is very powerful and cover various events such as clicking,submitting , dragging */
+    // e is event object  // very very important
+    console.log(e); // Now when we see on console after inspecting the webpage on clicking owl image we get Pointer Event.
+    // Pointer Event is an object inside which we get many events. Mostly we get browser events and environment events such as where mouse clicked
+    // , position of mouse etc. we timestamp , view  etc. below are given which are needed to study
+    //Events which we have to study by own for interview POV
+    // type,timestamp,defaultPrvented
+    // target , toElement srcElement , currentTarget
+    //ClientX,clientY,ScreenX,screenY
+    //altkey,ctrlkey,shiftkey,keycode
+
+},false)             
+// This Third parameter is default false that's why mostly dont write it
+//-------------------------------------------------Imp Interview Question----------------------------------------------
+// Question will be about this false true
+// its all about event propogation
+// two context event propogation
+// event bubbling i.e by default -> false (generally used in market)
+// event capturing -> true 
+
+
+//Examples to understand difference
+document.getElementById('images').addEventListener('click',function(e){
+    console.log('clicked inside the ul');
+},false) 
+document.getElementById('owl').addEventListener('click',function(e){
+    console.log('owl clicked');
+    e.stopPropagation();
+},false)
+//------------------------------------------------------------------------------------------------------------------------ 
+// Here so far we same code but only ids are different
+// Now , when we click on image any other than owl we will get clicked inside the ul  in console
+// but when we click on owl (which is part of both ) we will get 'owl clicked' and then 'inside the ul'  .... This all is event propogation i.e bubbling up , it goes from down to up 
+// this tracking from inside to outside is event propogation i.e bubbling
+// now if we made it to true , then we will get 'clicked inside the ul' and then 'owl clicked' .This is capturing mode, it goes from top to bottom
+//Its upto your usecase,which is required by you
+// Sometimes you want prevent event bubbling ,for that we can use e.stopPropogation() , now only owl clicked will come
+
+
+//--------------------------------------------------------------------------------------------------------------------------
+// preventDefaultBehaviour
+document.getElementById('google').addEventListener('click',function(e){
+    console.log("google clicked")
+    e.preventDefault();
+    e.stopPropagation();
+},false)// onclicking this link google page will not open
+
+// three approches are covered but still their are more approaches
+// attachEvent() // it was used in earlier times when we used internet explorer , not used these days
+//jQuery -on //(onEventListener) it was used previously
+
+
+// ------------------------------------------------------Project Oriented-----------------------------------------------------------
+//Goal:- When we click on a image it disappears
+document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e.target);// e.target will give source from where event (clicking) is occuring
+        // console.log(e.target.parentNode);// we dont want to remove only image , we also want to remove bullet so we we have to reach its parent node(parent of image)
+        // let removeIt=e.target.parentNode;
+        // // Two ways to remove
+        // removeIt.remove()
+        // removeIt.parentNode.removeChild(removeIt); // This can also work
+    //---------------------------BUT BUT BUT -----------------------------------------
+    // if your click near google , all the images will be cleared because you clicked on list item i.e li and its parent is ul. So complete ul will be removed.. This is event spill Over
+    // so for this 
+   console.log(e.target.tagName)
+    if(e.target.tagName==='IMG'){ // study event more, tagName is also a value
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode
+        removeIt.remove();
+    }
+
+},false) 
+</script>
+</html>
