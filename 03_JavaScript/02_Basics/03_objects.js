@@ -60,12 +60,12 @@ JsUsers.greeting = function(){
     console.log("Hello Js User")
 }
 console.log(JsUsers.greeting)// [Function (anonymous)] // Function is not executed , just we got reference of function // This point will be helpfull in future
-console.log(JsUsers.greeting()) /* Hello JsUser   [in next line]   undefined    // we will also get undefined asvoutput which we will discuss later */
+console.log(JsUsers.greeting()) /* Hello JsUser   [in next line]   undefined    // we will also get undefined as output which we will discuss later */
 JsUsers.greetingTwo = function(){
     console.log(`Hello Js User,${this.fullname}`)
 }
 // 'this' is used when you have to reference same obejct and its properties
-console.log(JsUsers.greetingTwo()) //Hello Js User,hitesh choudhary   [in next line]    undefined    // we will also get undefined asvoutput which we will discuss later */
+console.log(JsUsers.greetingTwo()) //Hello Js User,hitesh choudhary   [in next line]    undefined    // we will also get undefined as output which we will discuss later */
 
 /* Final Note:
 Generally , we access elements from JsUsers.name 

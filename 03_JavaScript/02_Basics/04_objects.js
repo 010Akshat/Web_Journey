@@ -27,7 +27,7 @@ const obj2={3:"c",4:"d"}
 const obj3={5:"e",6:"f"}
 
 const objans1={obj1,obj2}
-console.log(objans1) // similarly like Arrays , not correct way as obj3 will have two elements as object
+console.log(objans1) // similarly like Arrays , not correct way as objans1 will have two elements as object
 
 const objans2=Object.assign({},obj1,obj2) //{} - target , obj1 - source, obj2 - source
 console.log(objans2) //{ '1': 'a', '2': 'b', '3': 'c', '4': 'd' }
