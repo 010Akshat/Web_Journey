@@ -37,7 +37,7 @@ h1 {
   transition: all 0.3s ease;
 }
 
-.bulb.off {
+.off {
   background-color: #95a5a6;
   box-shadow: none;
 }
