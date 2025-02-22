@@ -1,7 +1,7 @@
 // Immediately Invoked Function Expressions (IIFE)
 
 /* 1.Here work is whenever you write a function you have to execute immediately.
-For example, it can be  used in database connectivity , as youy open the app you directly want it to connect to database.
+For example, it can be  used in database connectivity , as you open the app you directly want it to connect to database.
 2. Sometimes when we write functions we dont want them to be polluted or effected by global scope variables */
 
 
@@ -30,7 +30,7 @@ For example, it can be  used in database connectivity , as youy open the app you
 ((name)=>{ // parameter
     // simple iife (unanamed iife) not simple iffe
    console.log(`DB connected two,${name}`)
-})("aj") // arrow functi0n can also be called   // arguments 
+})("aj") // arrow function can also be called   // arguments 
 
 // ------------------INTERVIEW SPECIFIC----------------
 //1. Why iife?  above two both are reasons , not only execute immediately . only this ans is wrong
