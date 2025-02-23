@@ -20,3 +20,59 @@ const images = [
     caption: 'Urban City Skyline',
   },
 ];
+
+// variables
+let index=0;
+const carousel=document.getElementById('carouselTrack');
+const caption = document.getElementById('caption')
+const prevButton=document.getElementById('prevButton');
+const nextButton=document.getElementById('nextButton');
+const nav=document.getElementById('carouselNav');
+const autoPlayBtn= document.getElementById('autoPlayButton');
+const timer=document.getElementById('timerDisplay');
+let isPlaying=false;
+
+for(let image of images){
+  const img=document.createElement('img');
+  img.src=image.url;
+  img.classList.add("carousel-slide");
+  carousel.appendChild(img);
+  const span=document.createElement('span');
+  span.classList.add("carousel-indicator");
+  nav.appendChild(span);
+}
+nav.children[index].classList.add('active');
+caption.innerText=images[index].caption;
+const eventHandler=(direction)=>{
+  nav.children[index].classList.remove('active');
+  index=(index+direction+4)%4;
+  carousel.style.transform=`translateX(-${index*100}%)`;
+  caption.innerText=images[index].caption;
+  nav.children[index].classList.add('active');
+  console.log(nav.children[index].classList);
+}
+const next=nextButton.addEventListener('click',()=>eventHandler(1))
+const prev=prevButton.addEventListener('click',()=>eventHandler(-1))
+
+let stopInterval,stopTimer,s=4;
+const timerInterval = ()=>{
+  timer.innerText=`Next Slide in ${s}s`;
+  s--;
+  if(s<=0)s=5;
+};
+
+autoPlayBtn.addEventListener('click',()=>{
+  if(!isPlaying){
+    stopInterval=setInterval(eventHandler,5000,1);
+    stopTimer=setInterval(timerInterval,1000);
+    autoPlayBtn.innerText=`Stop Auto Play`;
+  }
+  else{
+      clearInterval(stopInterval);
+      clearInterval(stopTimer);
+      s=4;
+      timer.innerText='';
+      autoPlayBtn.innerText=`Start Auto Play`;
+  }
+  isPlaying=!isPlaying;
+});
