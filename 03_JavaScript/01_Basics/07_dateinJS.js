@@ -8,6 +8,7 @@ let myDate = new Date()
 // console.log(myDate.toString())//Fri Mar 29 2024 08:09:17 GMT+0000 (Coordinated Universal Time)
 // console.log(myDate.toDateString())//  Fri Mar 29 2024
 // console.log(myDate.toLocaleDateString())// 3/29/2024
+// console.log(myDate.toLocaleTimeString())// 5:27:49 pm
 // console.log(myDate.toLocaleString())//3/29/2024, 8:09:17 AM
 // console.log(myDate.toISOString())//2024-03-29T08:09:17.597Z
 // console.log(myDate.toJSON())//2024-03-29T08:09:17.597Z
