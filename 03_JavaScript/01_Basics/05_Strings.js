@@ -1,11 +1,13 @@
 const name="hitesh"
 const repoCount = 50
 
-console.log(name + repoCount + " Value")
+console.log(name + repoCount + " Value") // And it is only used for string concatenation
+// else if you cant concatenate (variable can be any function or anything else too)( use ,);
+console.log(name,repoCount,"Value") // hitesh 50 Value
 // This way writing is old fashioned and not recommended now
 
 // String Interpolation
-console.log(`Hello my name is ${name} and my repoCount is ${repoCount}`)
+console.log(`Hello my name is ${name} and my repoCount is ${repoCount}`) // `` -> template literals
 // This is the modern way and more preferred nowadays
 
 const gameName = new String('hitesh-hc-com')
@@ -24,8 +26,10 @@ console.log(newString)//hite
 console.log(newString1)//hite // It will ignore negative value and start form 0
 
 const anotherString=gameName.slice(-8,4)
-console.log(anotherString)// ite // consider last letter as -1 and move towards left to get -8 and then move forward to get 4(excluding)
+console.log(anotherString)// ite // consider last letter as -1 and move towards left to get -8 and then move forward to get 4(excluding) 
+// Not giving any answer
 
+console.log(gameName.slice(0,3)); // hit
 const newStringOne ="   akshat    "
 console.log(newStringOne)//"    akshat    "
 console.log(newStringOne.trim())//akshat // trim is a method that remove trailing and leading spaces

@@ -1,5 +1,5 @@
 // Primitive Data Types : string, Number, boolean, null, defined, Symbol, Big Int;
-// Non-Primitive Data Types : Array Object;
+// Non-Primitive Data Types : Array Object Functions;
 
 // ARRAYS
 
@@ -56,13 +56,13 @@ console.log(`${typeof newArr} and value is ${newArr}`) // string and value is 01
 
 console.log("A ",myArray)   //  [0,1,2,3,4,5,6]
 
-const myn1 = myArray.slice(1,3)
+const myn1 = myArray.slice(1,3) // 3 is index here
 console.log(myn1)         // [1,2]
 console.log("B ",myArray)  //  [0,1,2,3,4,5,6]
 
-const myn2 = myArray.splice(1,3)
-console.log(myn2)         //[1,2,3]
-console.log("C ",myArray)   //  [0,4,5,6]
+const myn2 = myArray.splice(4,3) //  3 is length here
+console.log(myn2)         //[4,5,6]
+console.log("C ",myArray)   //  [0,1,2,3]
 
 /* ----------------------------IMP Inteview Question-------------------
 Question- Diffrence Between Slice And Splice

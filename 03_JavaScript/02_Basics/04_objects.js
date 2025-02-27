@@ -79,7 +79,7 @@ console.log(tinderUser.hasOwnProperty('isLogged')) // false
 // What does it practically mean that you cannot create muktiple instances of of sigleton object???????
 
 
-//-------------------Destructuring Of Object--------------------------
+//-------------------OBJECT DESTRUCTURING--------------------------
 const course={
     coursename:"js in hindi",
     price:"999",
@@ -92,3 +92,6 @@ console.log(courseInstructor) // hitesh // we dont need tpo write course.courseI
 // You can change name also
 const {price:p}=course
 console.log(p) //999
+
+/*Note:- In Array destructuring name of variable can be anything but in object destructuring
+variable name should be exactly same as key */

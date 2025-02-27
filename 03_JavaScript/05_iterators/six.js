@@ -15,8 +15,9 @@ console.log(newNums) // [ 5, 6, 7, 8, 9, 10 ]
 const newNums1=myNums.filter((num)=>{ 
     num>4
 })
-console.log(newNums1)//[]
+console.log(newNums1)//[]  
 // Because whenever you use {} in arrow function(in other , you open a scope) you have to use return keyword
+// But, one thing in clear in any case filter will return a array , either empty but returns a array.
 // sharam karle ki terko yaad nhi raha 
 // arrow.js me arrow function wala content revise karke aa, sab clear hojayega 
  //-------------------------BUT------------------------------
@@ -82,7 +83,7 @@ console.log(userBooks)
 //       edition: 2016
 //     }
 //   ]
-userBooks = books.filter((bk)=>{return bk.publish>1995 && bk.genre==="History"})// use return with {}, again arrow wala concept in arrow.js
+userBooks = books.filter((bk)=>( bk.publish>1995 && bk.genre==="History"))// use return with {}, again arrow wala concept in arrow.js
 console.log(userBooks)
 // [
 //     {
@@ -92,5 +93,4 @@ console.log(userBooks)
 //       edition: 2007
 //     }
 //   ]
-
 

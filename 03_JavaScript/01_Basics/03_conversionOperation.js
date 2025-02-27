@@ -11,7 +11,9 @@ let valueInNumber1 = Number(score1)
 let valueInNumber2 = Number(score2)
 let valueInNumber3 = Number(score3)
 let valueInNumber4 = Number(score4)
-
+let valueInNumberAnotherWay=+score
+// console.log(typeof valueInNumberAnotherWay)  // number
+// console.log(valueInNumberAnotherWay)  // 33
 // console.log(typeof valueInNumber)  // number
 // console.log(valueInNumber) //Nan- NotAnNumber
 // console.log(valueInNumber1) //0
@@ -52,6 +54,7 @@ let str3=str1+str2
 // console.log(1+"2")//12
 // console.log("1"+2+2)//122
 // console.log(1+2+"2")//32
+console.log(1+2+"2"+4+7)//3247
 // // itna samjho yaha tak ki agar string pehle hai to sabko string ki trah use karnege otherwise value add hogi
 // console.log(true+"2")//true2
 // console.log(true+false+"2")//12 (0+1+"2")
@@ -72,6 +75,3 @@ console.log(num3)
 let gameCounter = 100
 ++gameCounter;
 console.log(gameCounter)
-
-
-

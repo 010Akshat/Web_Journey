@@ -21,3 +21,22 @@ switch(month){
 //if break is missed in between all the code after correct case 
 // will be executed EXCEPT DEFAULT
 // Doubt - It is executing
+
+switch(2){
+    case 1:
+        console.log("January")
+        break;
+    case 2:
+        console.log("February")
+    case 3:
+        console.log("March")
+    case 4:
+        console.log("April")
+    default:
+        console.log("Some Other Month")
+        break;    
+}
+// February
+// March
+// April
+// Some Other Month

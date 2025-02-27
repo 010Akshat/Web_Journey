@@ -1,7 +1,7 @@
 const coding = ["js","ruby","java","python","cpp"]
 
 // some loops are directly added inside properties inside arrays 
-// when we inspect coding array in developer console , in prototypes of array it will show that foreach is present 
+// when we inspect coding array in developer console, in prototypes of array it will show that foreach is present 
 // map is also a prototype of arrays 
 
 coding.forEach(function(item){
