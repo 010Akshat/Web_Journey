@@ -55,7 +55,7 @@ function calculateCartPrice1(val1,val2,...num1){
     return num1
 }
 // -----------------Interview Question------------------------------------------------------------------------
-console.log(calculateCartPrice1(200,400,500,2000))//[ 500 ,20000 ] // as val1=200,val2=400 and rest values are in array because of rest function.
+console.log(calculateCartPrice1(200,400,500,2000))//[ 500 ,2000 ] // as val1=200,val2=400 and rest values are in array because of rest function.
 
 //------------------------------------------------------------------------------------------------
 const user = {

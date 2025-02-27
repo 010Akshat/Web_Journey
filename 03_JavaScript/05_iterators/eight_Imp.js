@@ -73,6 +73,13 @@ console.log(res2); //{ user: 'Bob', activityCount: 72 }
 
 // NOTE: Always remember reduce return the data type which you have created data type of accumulator.
 
+/*+++++++++++++++++++++++ LEARN +++++++++++++++++++++++++
+map :- Always returns array of length of original array
+filter :- Always returns array of elements that satisy condition (can be empty array)
+reduce :- Always return datatype of accumulator you have created 
+forEach : Does not return anything or we can say it returns undefined.
+
+*/
 //+++++++++++++++++++++++++++++++++ Very Important Js Concept for INTERVIEW ++++++++++++++++++++++++++++++++
 // Function sequential piping or Build your own pipe in JavaScript
 // Interviews for stripe, razorPay and Jio Hotstar , this question will definitely come 

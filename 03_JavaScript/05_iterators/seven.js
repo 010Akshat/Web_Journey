@@ -15,8 +15,7 @@ console.log(newNums)
 //     true
 // ] 
 // Remember map is not like filter, it will return for every item
-
-
+// map in JavaScript always returns a new array of the same length as the original array.
 //---------------------------------------- Chaining is possible-------------------------------
 
 newNums = myNumbers

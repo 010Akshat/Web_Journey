@@ -72,5 +72,35 @@ Ans- Everyone Says That slice does not include last index but splice include...
   i.e splice manipulate the original array but slice does not.
 */
 
+/* More About Splice
+Splice is very important!!!!
+
+YOU CAN INSERT ELEMENTS USING SPLICE
+
+:: At a Given Position
+To insert an element at a specific index, the splice() method can be used.
+This method allows adding elements at any position in the array while optionally removing existing ones.
+
+let a = [10, 20, 30, 40];
+let pos = 2;
+let e = 50;
+a.splice(pos, 0, e);
+console.log(a);
+
+Output
+[ 10, 20, 50, 30, 40 ]
 
 
+:: Multiple Elements
+Using the splice() method, you can also insert multiple elements at a specified index.
+
+let a = [10, 20, 30, 40];
+let pos = 2;
+let e1 = 50, e2 = 60;
+a.splice(pos, 0, e1, e2);
+console.log(a);
+
+Output
+[ 10, 20, 50, 60, 30, 40 ]
+ 
+*/

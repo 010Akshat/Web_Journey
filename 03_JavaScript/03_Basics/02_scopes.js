@@ -80,3 +80,66 @@ const addfour=function(num){
 // the point to be noted here is when you call function before initialization it worked in first method but will give error in second method 
 // This is somehow related to hoisting which will be discussed later 
 
+
+// Hoisting:-
+/*
+🔹 What is Hoisting in JavaScript?
+Hoisting is a JavaScript mechanism where variables and function declarations are moved ("hoisted") to the top of their scope during the compilation phase, before the code is executed.
+
+However, only the declaration is hoisted, not the initialization.
+
+🔹 Hoisting with var
+When you declare a variable using var, the declaration is hoisted to the top, but the initialization remains in place.
+
+Example 1: var is Hoisted
+var is hoisted but not in the Temporal Dead Zone (TDZ) like let and const. 
+Instead, var is initialized to undefined during hoisting.
+
+console.log(x); // undefined (not an error, but not initialized)
+var x = 10;
+console.log(x); // 10
+✅ Behind the scenes, JavaScript interprets this as:
+
+var x;  // Declaration is hoisted to the top
+console.log(x); // undefined
+x = 10; // Initialization stays in place
+console.log(x); // 10
+🚨 Only the declaration (var x;) is hoisted, not the assignment (x = 10;).
+
+
+🔹 Hoisting with let and const
+let and const are also hoisted, 
+but they are not initialized and remain in a "Temporal Dead Zone" until their declaration is encountered.
+
+Example 2: let and const Are Hoisted But Not Initialized (TDZ)
+
+console.log(y); // ReferenceError: Cannot access 'y' before initialization
+let y = 20;
+🔴 Unlike var, let does not get a default undefined value and throws an error.
+
+🔹 Hoisting with Functions
+Function Declarations Are Fully Hoisted
+greet(); // "Hello!"
+
+function greet() {
+  console.log("Hello!");
+}
+✅ Function declarations are fully hoisted, meaning both their name and definition are moved to the top.
+
+Function Expressions Are NOT Hoisted
+
+sayHi(); // TypeError: sayHi is not a function
+
+let sayHi = function() {
+  console.log("Hi!");
+};
+
+Your code will throw a ReferenceError, not a TypeError, 
+because let variables are in the Temporal Dead Zone (TDZ) until their declaration is executed.
+TDZ:-Temporal Dead Zone (TDZ)
+The variable exists but cannot be accessed before its declaration is executed.
+Accessing it before declaration throws a ReferenceError
+
+*/
+
+

@@ -184,3 +184,5 @@ The [...arr] spread operator only copies the references, not the actual objects.
 So both arr[0] and copiedArr[0] point to the same object in heap memory.
 
 */
+
+// Their are many more thing in MDN DOCS of array.sort() refer if something is not here 
