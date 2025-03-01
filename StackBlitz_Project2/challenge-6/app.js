@@ -18,14 +18,15 @@ for(let i=1;i<=12;i++){
     clock.appendChild(div);
 }
 
-setInterval(function time(){
+const updateClock = ()=>{
     const d=new Date();
     const hours=d.getHours()%12==0?12:d.getHours()%12;
-    const minutes=d.getMinutes().toString();
+    const minutes=d.getMinutes().toString(); //d.getMinutes().toString().padStart(2,"0"); // minutes<10?`0${minutes}`:`${minutes}`;
     const min=minutes.length==1?'0'+minutes:minutes;
     const seconds=d.getSeconds().toString();
     const sec = seconds.length==1?'0'+seconds:seconds;
-    digitalClock.innerText=`${hours}:${min}:${sec}`;
+    const ampm = d.getHours()>=12?"PM":"AM";
+    digitalClock.innerText=`${hours}:${min}:${sec} ${ampm}`;
     const day=d.getDay();
     const dte= d.getDate();
     const month = d.getMonth();
@@ -33,5 +34,7 @@ setInterval(function time(){
     date.innerText=`${days[day]} ${dte} ${months[month]} ${year}`;
     hour.style.transform=`rotate(${hours*30+minutes*0.5+seconds*(1/120)}deg)`;
     minute.style.transform=`rotate(${minutes*(6)+seconds*0.1}deg)`;
-    second.style.transform=`rotate(${seconds*6}deg)`;
-},1000);
+    second.style.transform=seconds==0?null:`rotate(${seconds*6}deg)`;
+}
+setInterval(updateClock,1000);
+updateClock()

@@ -13,6 +13,17 @@ let myDate = new Date()
 // console.log(myDate.toISOString())//2024-03-29T08:09:17.597Z
 // console.log(myDate.toJSON())//2024-03-29T08:09:17.597Z
 
+// Another impoertant +++++++++ IMP FOR INTERVIEW +++++++++++++++
+const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+const date = myDate.toLocaleDateString(undefined,options);
+console.log(date); //Friday 28 February, 2025 
+// Question is asked: What is undefined? -> It refers to local Time Zone.
+
 // // Interview Question
 // console.log(typeof myDate) // Object
 
