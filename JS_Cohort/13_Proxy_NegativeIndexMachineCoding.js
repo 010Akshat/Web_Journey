@@ -59,6 +59,24 @@ console.log(arr[-1])//undefined (Proxy can reflect changes in original data but 
 // console.log(arr); // [1,2,3,4,5,6,7,8,9,22]
 // console.log(newArr); // [1,2,3,4,5,6,7,8,9,22]
 
+let newArr2 = negativeIndex([...arr]);
+newArr2[-1]=44;
+console.log(arr); // [1,2,3,4,5,6,7,8,9,22]
+console.log(newArr2); //// [1,2,3,4,5,6,7,8,9,44]
+
+let vec=[1,2,[3.1,3.2],4,5];
+let newvec=negativeIndex([...vec]);
+newvec[0]=100;
+console.log(vec); //[ 1, 2, [ 3.1, 3.2 ], 4, 5 ]
+console.log(newvec); // [ 100, 2, [ 3.1, 3.2 ], 4, 5 ]
+newvec[2][0]=987;
+console.log(vec); //[ 1, 2, [ 987, 3.2 ], 4, 5 ]
+console.log(newvec); // [ 100, 2, [ 987, 3.2 ], 4, 5 ]
+newvec[2]=45;
+console.log(vec) // [ 1, 2, [ 987, 3.2 ], 4, 5 ]
+console.log(newvec) // [ 100, 2, 45, 4, 5 ]
+
+
 /*
 Proxy in js gives impact of original data
 ChatGPT said:

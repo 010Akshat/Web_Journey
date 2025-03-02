@@ -27,13 +27,14 @@ As such, it was difficult to choose the best approach to include it in the Node 
 The global fetch() method starts the process of fetching a resource from the network , 
 returning a promise which is fullfilled once the response is available.
 
+// ++++ IMP: fetch() returns a promise.
 
 
 //--------------------------Very Very Imp JS Interview Question----------------------------------
 Question : You made a request From fetch. There you got erroe 404 . So this you will get in resolve or reject?
 Solution: You will get that message in resolve not in reject 
 because 
-eror you will get only when browser can't even make a request.
+error you will get only when browser can't even make a request.
 
 --------------Documentation for aboove question----------------
 A fetch() promise only rejects when the request fails, for example, 
@@ -52,4 +53,5 @@ fetch('https://example.com/', { headers });
 */
 
 /* Now go to copy, to understand internal working of fetch */
+/* Also go to new copy for understandind asynchronous route of promise returned by fetch */
         

@@ -1,6 +1,8 @@
 //----------------------------------------------------------PROMISES----------------------------------------------------------------
-// The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
-// Promise means that the task given by developer will not be completed instantly . Some task or operations can be done laterdepending on the usecase 
+// The Promise object represents the eventual completion (or failure) of an asynchronous operation and its 
+// resulting value.
+// Promise means that the task given by developer will not be completed instantly . 
+// Some task or operations can be done later depending on the usecase. 
 //Ex. File Access from systems(Kernel read the file and then control goes back to program)
 //Ex. Request From DATABASE
 //Ex. CryptoGraphy ,like password encryption
@@ -14,14 +16,16 @@ pending: initial state, neither fulfilled nor rejected.
 fulfilled: meaning that the operation was completed successfully.
 rejected: meaning that the operation failed. */
 
-// Noticebly, mostly you will consume the promise and you wil less create a promise 
+// Noticebly, mostly you will consume the promise and you will less create a promise 
 
 // Promise is Object
 
 // History Of Promises 
 /*
-When js doesnt have direct promises , then too asynchronous js was used. Either async, await was used but promises syntax was great. so promises were used libraries like 
-Q and Blurbird which let users to use them. But then in future these we incorporated into pure Js. 
+When js doesnt have direct promises , then too asynchronous js was used. Either async, await was used but 
+promises syntax was great. So promises were used. 
+Libraries like Q and Blurbird which let users to use them. 
+But then in future these we incorporated into pure Js. 
 */
 // const promiseOne = new Promise() // we are creating a instance of object (similar to we create a instance of class)
 //callBack hell -> callback inside callback inside callback
@@ -34,7 +38,7 @@ const promiseOne = new Promise(function(resolve,reject){
     setTimeout(function(){
         console.log('Async Task is complete ');
         resolve();// it is a method , it executes and connects with .then so that promise can be completed .
-        // it can pass arguments too and irt perform various tasks behind the scene
+        // it can pass arguments too and it perform various tasks behind the scene
 
     },1000);
 })
@@ -167,11 +171,24 @@ async function getAllUsers(){
 
 fetch('https://jsonplaceholder.typicode.com/users')
 .then((response)=>{
-return response.json()
+return response.json() // .json converts json into objects. (Data we received in the form of json);
+// response.json() is also a promise and we are returning it , hence we can again use .then on it 
+// that why we are again using .then.
 })
 .then((data)=>{
     console.log(data)
-}).catch((error)=> console.log(error));
+}).catch((error)=> console.log(error))
+.finally(()=>{
+    console.log("Mai to chalunga hi");
+})
+
+// .then and .catch are property of Promises. Read new copy of 24/02/25
+
+// +++++++++++++++++++INTERVIEW QUESTION ++++++++++++++++++++++++
+// This section is added during cohort
+// Q: Js has it own network calling capability( i.e wahi same network se data lana i.e API call)?
+// Ans: No , pehle bhi nhi thi aaj bhi nhi , it is provided by runtime environment (Browser or Node)
+// SetInterval , setTimeout , fetch all these are properties of browser (i.e runtime environment);
 
 // Now , noticably in OUTPUT firstly we getting result of fetch and then our remaining promises
 // This we will study in next part;
