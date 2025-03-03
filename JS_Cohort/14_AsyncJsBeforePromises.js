@@ -2,6 +2,7 @@
 //Asynchronous Code -> Non-Blocking Code
 // Consider a synchronous code / Blocking Code
 console.log("Hi")
+const { rejects } = require('assert');
 const fs = require('fs');
 const contents = fs.readFileSync('./JS_Cohort/test.txt','utf-8'); // readFileSync is synchronous
 console.log(contents);
@@ -197,3 +198,53 @@ result
 // This was promisification . Library Bluebird yahi kaam karti thi , it takes input code and it promisify it.
 // But hume inki requirement nhi bachi hai kyuki ab sab promisified hai.
 // It does not mean it is not important , badi or purani companies ka code samjhne ke liye in sab ki req. hai.
+
+//+++++++++++++++++++++ ASYNC AWAIT +++++++++++++++++++++++++++++++++++++++++
+/* .then .catch are only way to handle promises , ans is no.
+Here comes async await
+const result = readFileWithPromise('./JS_Cohort/test.txt','utf-8');
+result
+    .then((content)=>writeFileWithPromise('./JS_Cohort/backup.txt',content))
+    .then(()=>unlinkFileWithPromise('./JS_Cohort/test.txt'))
+    .catch(()=>{console.log(e)})
+    .finally(()=>console.log("Done"))
+-> Here understand carefully , this whole is a async code , but is pure async portion me code 
+synchronously chal rah hai.
+-> To iss async code ko sync feeling dene ke liye we use async await.
+-> Hence , async await is just syntactic sugar over .then .catch
+-> Their is no difference in performance
+*/
+
+function wait(seconds){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve(),seconds*1000)
+    });
+}
+async function allTasks() {
+    try{
+        const fileContent = await readFileWithPromise('./JS_Cohort/test.txt','utf-8'); 
+        //await -> isko likhne se .then me jo content return ho rah tha vo fileContent me pass hojayge.
+        // also it return promise everytime.
+        //we want to wait for 10 sec.
+        await wait(10)
+        await writeFileWithPromise('./backup.txt',fileContent);
+        await unlinkFileWithPromise('./JS_Cohort/test.txt')
+    }
+    catch(e){
+        console.log('Error',e);
+    }
+    finally{
+        console.log("All Done");
+    }   
+}
+//As you write async in front of funtion , it returns promise.
+// const res=allTasks(), Hence -> res is also a promise.
+allTasks().then(()=>{
+    console.log('Done');
+})
+
+// Note: if your don't write async in allTasks fn and write await inside fn , it will give error 
+// await fn only runs when function is async
+// wait(10) ios graceful way for waiting explicitly.
+
+
