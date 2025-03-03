@@ -11,10 +11,16 @@
 // In short , promises complete in future
 
 
-/*A Promise is in one of these states:
+/*A Promise is in one of these states or stages:
 pending: initial state, neither fulfilled nor rejected.
 fulfilled: meaning that the operation was completed successfully.
 rejected: meaning that the operation failed. */
+
+/* A promise has 3 properties:
+.then
+.catch
+.finally
+*/
 
 // Noticebly, mostly you will consume the promise and you will less create a promise 
 
