@@ -42,7 +42,7 @@ It does not modify existing array */
 if(!Array.prototype.myMap){
     Array.prototype.myMap= function(userFn){
         let newArr=[];
-        for(let i=0;i<this.length;i++){
+        for(let i=1;i<this.length;i++){
             newArr.push(userFn(this[i],i));
         }
         return newArr;
@@ -73,3 +73,39 @@ if(!Array.prototype.myFilter){
 const myfltret = arr.myFilter((value)=>(!(value&1)));
 console.log(myfltret);
 
+// Polyfill for reduce 
+// if(!Array.prototype.myReduce){
+//     Array.prototype.myReduce = function(userFn, initialValue = undefined){
+//         if(!initialValue){
+//             let acc=this[0];
+//             for(let i=1;i<this.length;i++){
+//                 acc = userFn(acc,this[i]);
+//             }
+//             return acc;
+//         }
+//         let acc=initialValue;
+//         for(let i=0;i<this.length;i++){
+//             acc = userFn(acc,this[i]);
+//         }
+//         return acc;
+//     }
+// }
+
+// Cleaner Code
+if(!Array.prototype.myReduce){
+    Array.prototype.myReduce = function(userFn, initialValue = undefined){
+        let acc=initialValue || this[0];
+        let sIdx = initialValue?0:1;
+        for(let i=sIdx;i<this.length;i++){
+            acc = userFn(acc,this[i]);
+        }
+        return acc;
+    }
+}
+
+let res1 = arr.myReduce((acc,val)=>acc+val);
+let res2 = arr.myReduce((acc,val)=>acc+val,12);
+console.log(res1); // 21
+console.log(res2); // 33
+
+// Now , their should be many checks for cases like empty array , single element array etc.
