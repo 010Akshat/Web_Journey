@@ -64,5 +64,7 @@ for (const key of programming){
 // Not give error but nothing will be printed ,
 // maps are not iterable in such way 
 
+
+// Note: Object cannot be iterated through for of loop.
 //-----------------------------------------------------------------------------
 

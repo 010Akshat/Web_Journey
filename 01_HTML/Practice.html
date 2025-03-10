@@ -3,36 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Global Methods in JavaScript</title>
     <style>
-        table{
-            border-collapse: collapse;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; margin: 30px; }
+        input, button { margin: 5px; padding: 8px; }
+        button { cursor: pointer; background: #007bff; color: white; border: none; }
+        button:hover { background: #0056b3; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        p { font-weight: bold; }
     </style>
-    <script src="./prac.js"></script>
 </head>
 <body>
-    <form >
-        <input type="text" value="Fullname">
-        <br>
-        <input type="email" value="abc@gmail.com">
-        <br>
-        <input type="submit">
-    </form>
-    <form action="aad.com">
-        <p>
-        <input type="checkbox" name="wff" value="first" checked="checked">Milk
-        <br>
-        <input type="checkbox" name="wfdqd" value="firscst" >Milk
-        <br>
-        <input type="checkbox" name="wfacaf" value="firsvst">Milk
-        <br>
-        <input type="checkbox" name="wcsdff" value="fiacrst">Milk
-        <br>
-        </p>
-    </form>
-    <form action="">
 
-    </form>
+    <div class="container">
+        <h2>Global Methods Demo</h2>
+
+        <h3>Number Methods</h3>
+        <input type="text" id="numInput" placeholder="Enter a number">
+        <button onclick="checkNumber()">Check</button>
+        <p id="numResult"></p>
+
+        <h3>URI Encoding/Decoding</h3>
+        <input type="text" id="urlInput" placeholder="Enter a URL">
+        <button onclick="encodeDecodeURL()">Encode & Decode</button>
+        <p id="urlResult"></p>
+    </div>
+
+    <script>
+        function checkNumber() {
+            let input = document.getElementById("numInput").value;
+            let parsedInt = parseInt(input);
+            let parsedFloat = parseFloat(input);
+            let isNumNaN = isNaN(input);
+            let isNumFinite = isFinite(input);
+
+            document.getElementById("numResult").innerHTML = `
+                Input: ${input} <br>
+                parseInt: ${parsedInt} <br>
+                parseFloat: ${parsedFloat} <br>
+                isNaN: ${isNumNaN} <br>
+                isFinite: ${isNumFinite}
+            `;
+        }
+
+        function encodeDecodeURL() {
+            let input = document.getElementById("urlInput").value;
+            
+            // Use encodeURIComponent() instead of encodeURI() for better results
+            let encodedURL = encodeURIComponent(input);
+            let decodedURL = decodeURIComponent(encodedURL);
+
+            document.getElementById("urlResult").innerHTML = `
+                Original: ${input} <br>
+                Encoded (with encodeURIComponent): ${encodedURL} <br>
+                Decoded: ${decodedURL}
+            `;
+        }
+    </script>
+
 </body>
 </html>

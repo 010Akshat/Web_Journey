@@ -39,6 +39,7 @@ console.log(Object.getOwnPropertyDescriptor(chai,'name'));
 // for (let [key,value] of chai) {
 //     console.log(`${key}:${value}`)
 // }   // ERROR // chai is not iterable , so for that we have solution below 
+// Object cannot be iterated through for of loop but array can.
 for (let [key,value] of Object.entries(chai)) {
     console.log(`${key}:${value}`)
 }

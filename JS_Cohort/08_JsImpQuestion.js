@@ -2,8 +2,8 @@ Function.prototype.describe=function(){
     console.log(`output is ${this.name}`);
 }
 
-function greet(name){
-    return`My name is ${name}`;
+function greet(){
+    return`My name is Akshat}`;
 }
 
 console.log(greet.describe("akshat")); //output is greet

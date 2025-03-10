@@ -42,6 +42,7 @@ console.log(this) //{}
 // It allows us to create multiple instance from a single object.
 // or in other words new the constructor function is used to make new context 
 
+//function constructor
 function User(username,loginCount,isLoggedIn){
     this.username/*our variable*/=username/*argument passed*/;
     this.loginCount/*our variable*/=loginCount/*argument passed*/;

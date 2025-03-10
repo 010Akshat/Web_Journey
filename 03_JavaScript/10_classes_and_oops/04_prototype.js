@@ -48,7 +48,7 @@ const Teacher = {
 }
 
 const TeachingSupport ={
-    isavailable: false 
+    isavailable: true
 }
 
 const TASupport ={
@@ -58,7 +58,7 @@ const TASupport ={
 }
 Teacher.__proto__= User
 console.log(Teacher.name) // chai
-console.log(TASupport.isavailable) // false 
+console.log(TASupport.isavailable) // true
 
 // This all is inheritance or prototypal inheritance ( here we did it manually)
 // However this code now is used very less

@@ -45,6 +45,7 @@ or it found the null.  It is referred to as prototyple inheritance.
 Example of prototypal inheritance through code (ChatGPT):
 
 // Parent object constructor
+// function constructor
 function Person(name, age) {      // functions are objects
   this.name = name;
   this.age = age;
