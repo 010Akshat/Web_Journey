@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /*FallBack , first try 'Segoe UI' ,if not 
+    present then go to Tahoma & so on */
+}
+body{
+    background-color: black;
+    color: white;
+}
+
+.container{
+    border: 1px solid red;
+    justify-self: center;
+    display: flex;
+    gap:10px;
+    padding: 20px;
+}
+
+.board{
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    height: 80vh;
+    width: 250px;
+    padding: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.items{
+    margin-top: 20px;
+}
+.item{
+    border: 1px solid white ;
+    padding: 5px;
+    margin-top: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.item:hover{
+    background-color: white;
+    color: black;
+}
+#add-task-btn{
+    position: relative;
+    top: 10px;
+    left: 30%;
+    padding: 5px 15px;
+    justify-self: flex-start;
+}
