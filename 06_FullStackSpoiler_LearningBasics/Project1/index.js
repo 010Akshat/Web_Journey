@@ -30,8 +30,8 @@ app.use(cors({
 );
 // This is headAche for whole development world.
 
-
-app.use(express.json()) // To accept json from client
+// Built in middle ware
+app.use(express.json()) // To accept json from client 
 /*
 The line app.use(express.json()) is used in Node.js with the Express.js framework to parse incoming JSON 
 payloads from the request body.
@@ -45,7 +45,7 @@ When a client sends data to the server in JSON format (like in a POST or PUT req
 the server needs to be able to understand and access this data. 
 express.json() parses the JSON data and makes it available in req.body.
 */
-
+// Built in middle ware
 app.use(express.urlencoded({extended:true}))
 /*
 app.use(express.urlencoded({ extended: true })) is a middleware function in Express.js that parses incoming requests 
