@@ -2,6 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import db from "./utils/db.js" // Sometimes you need to write .js and sometimes not.
 // For precaution we are writing now
 // It is also error prone area.
@@ -56,6 +57,8 @@ It is part of the body-parser module but comes built-in with Express (since vers
 It allows you to extract data from HTML forms and access it via req.body.
 */
 
+// This is done to access cookies of user.
+app.use(cookieParser());
 
 const port = process.env.PORT || 3000;  // In production (render, digitalOcean , AWS), port is provided by server , server allocates you  port ,
 // in case it is not available we can use 3000
@@ -79,7 +82,7 @@ app.get("/piyush",(req,res)=>{   // only writing "piyush" will give error , rout
 });
 
 //connect to db
-db();
+db(); 
 
 // user routes(Make sure to write them after connection to db)
 app.use("/api/v1/users",userRoutes); // api/v1/users tak sabme common hoga uske baad userRoutes se add hojayega chahe empty / hi ho.
